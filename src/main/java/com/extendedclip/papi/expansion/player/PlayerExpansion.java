@@ -71,8 +71,7 @@ public final class PlayerExpansion extends PlaceholderExpansion implements Confi
     public String onRequest(OfflinePlayer player, String identifier) {
 
         final boolean targetedPing = identifier.startsWith("ping_");
-        if (targetedPing || identifier.startsWith("colored_ping_"))
-        {
+        if (targetedPing || identifier.startsWith("colored_ping_")) {
             final Player target = Bukkit.getPlayer(identifier.substring(targetedPing ? 5 : 13)); // yes, I know, magic value
 
             return target == null ? "0" : retrievePing(target, false);
@@ -307,8 +306,7 @@ public final class PlayerExpansion extends PlaceholderExpansion implements Confi
     }
 
     @Override
-    public boolean register()
-    {
+    public boolean register() {
         low = this.getString("ping_color.low", "&a");
         medium = this.getString("ping_color.medium", "&e");
         high = this.getString("ping_color.high", "&c");
@@ -321,11 +319,9 @@ public final class PlayerExpansion extends PlaceholderExpansion implements Confi
     }
 
 
-    private String retrievePing(final Player player, final boolean colored)
-    {
+    private String retrievePing(final Player player, final boolean colored) {
         final int ping = PlayerUtil.getPing(player);
-        if (!colored)
-        {
+        if (!colored) {
             return String.valueOf(ping);
         }
 
